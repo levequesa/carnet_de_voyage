@@ -12,15 +12,15 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Etape {
+public class Stage {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	private String ville;
-	private String Description;
-	private Date dateEtape;
+	private String town;
+	private String description;
+	private String stageDate;
 	
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.REFRESH, optional = false)
     @JoinColumn(name = "travel_id", nullable = false)
@@ -34,28 +34,28 @@ public class Etape {
 		this.id = id;
 	}
 
-	public String getVille() {
-		return ville;
+	public String getTown() {
+		return town;
 	}
 
-	public void setVille(String ville) {
-		this.ville = ville;
+	public void setTown(String town) {
+		this.town = town;
 	}
 
 	public String getDescription() {
-		return Description;
+		return description;
 	}
 
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
 
-	public Date getDateEtape() {
-		return dateEtape;
+	public String getStageDate() {
+		return stageDate;
 	}
 
-	public void setDateEtape(Date dateEtape) {
-		this.dateEtape = dateEtape;
+	public void setStageDate(String stageDate) {
+		this.stageDate = stageDate;
 	}
 
 	public Travel getTravel() {
@@ -65,4 +65,6 @@ public class Etape {
 	public void setTravel(Travel travel) {
 		this.travel = travel;
 	}
+
+    
 }

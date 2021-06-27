@@ -23,30 +23,31 @@
 		
 
 		<div class="container">
-			<h3 th:text="${travel.id} ? 'Edit traveL' : 'Create travel'">Travel</h3>
-		
-			<form method="post" th:action="@{/admin/travel}" th:object="${travel}">
+			<h3 th:text="${stage.id} ? 'Edit stage' : 'Create stage'">Stage</h3>
+			<form method="post" th:action="@{/admin/stage}" th:object="${stage}" class="row g-3">
 	    		<input name="id" th:field="*{id}" type="hidden">
-	   			<div class="row mb-3">
-	    			<label for="travel-dest" class="col-sm-2 col-form-label">Destination :</label>
-	   	 			<div class="col-sm-10">
-	   	 				<input id="travel-dest" name="country" class="form-control" placeholder="Wild Code School" required th:field="*{country}" type="text">
-			    	</div>
+	   			<div class="col-md-6">
+	    			<label for="stage-city" class="form-label">City :</label>
+	   	 			<input id="stage-city" name="town" class="form-control" placeholder="Wild Code School" required th:field="*{town}" type="text">
 			    </div>
 			    <br>
-			    <div class="row mb-3">
-			   		<label for="travel-deb" class="col-sm-2 col-form-label">Departure date :</label>
-			   		<div class="col-sm-10">
-			   			<input id="travel-deb" name="deb" class="form-control" placeholder="01/01/2021" required th:field="*{deb}" type="date">
-			  		</div>
+			    <div class="col-md-6">
+			   		<label for="stage-date" class="form-label">Date :</label>
+			   		<input id="stage-date" name="stageDate" class="form-control" placeholder="01/01/2021" required th:field="*{stageDate}" type="date">
 			    </div>
 			    <br>
-			    <div class="row mb-3">
-			    	<label for="travel-end" class="col-sm-2 col-form-label">Arrival date :</label>
-			    	<div class="col-sm-10">
-			    		<input id="travel-end" name="fin" class="form-control" placeholder="10/01/2021" required th:field="*{fin}" type="date">
-			   		</div>
+			    <div class="col-md-12">
+			    	<label for="stage-desc" class="form-label">Description :</label>
+			    	<input id="stage-desc" name="Description" class="form-control" placeholder="comments" required th:field="*{Description}" type="text">
 			    </div>
+			    <br>
+			    <div class="col-md-4">
+   					 <label for="inputState" class="form-label">travel selection</label>
+   					 <select id="inputState" class="form-select" th:object="${travel}">
+  					  	  <option selected>Choose...</option>
+   						  <option th:each="travel : ${travels}" th.value="${travel.id}" th:text="${travel.country}"></option>
+  					  </select>
+  				</div>
 			    <br><br>
 			    <input type="submit" value="Send">
 			</form>

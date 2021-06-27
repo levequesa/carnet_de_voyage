@@ -10,8 +10,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
-import com.wildcodeschool.wizardsnpotions.entity.Potion;
-
 @Entity
 public class Travel {
 	
@@ -19,11 +17,11 @@ public class Travel {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String country;
-	private Date deb;
-	private Date fin;
+	private String deb;
+	private String fin;
 	
 	@OneToMany(mappedBy = "travel", cascade = CascadeType.ALL)
-	private List<Etape> etapes;
+	private List<Stage> stages;
 
 	public Long getId() {
 		return id;
@@ -41,27 +39,27 @@ public class Travel {
 		this.country = country;
 	}
 
-	public Date getDeb() {
+	public String getDeb() {
 		return deb;
 	}
 
-	public void setDeb(Date deb) {
+	public void setDeb(String deb) {
 		this.deb = deb;
 	}
 
-	public Date getFin() {
+	public String getFin() {
 		return fin;
 	}
 
-	public void setFin(Date fin) {
+	public void setFin(String fin) {
 		this.fin = fin;
 	}
 
-	public List<Etape> getEtapes() {
-		return etapes;
+	public List<Stage> getStages() {
+		return stages;
 	}
 
-	public void setEtapes(List<Etape> etapes) {
-		this.etapes = etapes;
+	public void setStages(List<Stage> stages) {
+		this.stages = stages;
 	}
 }
