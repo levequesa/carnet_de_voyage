@@ -63,6 +63,8 @@ public class AdminController {
 				stage = optionalStage.get();
 			}
 		}
+		List<Travel> travels = travelService.getAll();
+		model.addAttribute("travels",travels);
 		model.addAttribute("stage",stage);
 		return "stage";
 	}

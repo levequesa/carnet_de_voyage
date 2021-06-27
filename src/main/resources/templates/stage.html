@@ -43,7 +43,7 @@
 			    <br>
 			    <div class="col-md-4">
    					 <label for="inputState" class="form-label">travel selection</label>
-   					 <select id="inputState" class="form-select" th:object="${travel}">
+   					 <select id="inputState" class="form-select" th:object="${travels}">
   					  	  <option selected>Choose...</option>
    						  <option th:each="travel : ${travels}" th.value="${travel.id}" th:text="${travel.country}"></option>
   					  </select>
